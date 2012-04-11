@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="org.meruvian.yama,org.mutiaraiman" />
+	<context:property-placeholder location="classpath:/db.properties" />
+	<!-- <util:properties id="properties" location="classpath:/db.properties" 
+		/> -->
+
+	<!-- Email settings -->
+	<bean id="emailAuthenticator" class="org.apache.commons.mail.DefaultAuthenticator">
+		<constructor-arg index="0" value="${email.username}" />
+		<constructor-arg index="1" value="${email.password}" />
+	</bean>
+
+	<bean id="htmlEmail" class="org.meruvian.yama.plugins.mail.HtmlEmail"
+		p:authenticator-ref="emailAuthenticator" p:sslSmtpPort="${email.smtp.port}"
+		p:SSL="true" p:TLS="true" p:hostName="${email.host}"
+		p:smtpPort="${email.smtp.port}" />
+</beans>
