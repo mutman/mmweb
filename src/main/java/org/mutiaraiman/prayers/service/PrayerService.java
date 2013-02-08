@@ -43,7 +43,11 @@ public class PrayerService extends PersistenceManager<Prayer> {
 	public EntityListWrapper<String> getAllTitle(int limit, int page) {
 		return dao.getAllTitle(limit, page);
 	}
-
+	
+	public Prayer getLatestPrayerByType(Type type) {
+	    return dao.getLatestPrayerByType(type);
+	}
+	
 	public EntityListWrapper<Prayer> getAllByType(Type type, int limit, int page) {
 		return dao.getAllByType(type, limit, page);
 	}

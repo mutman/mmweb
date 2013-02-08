@@ -24,16 +24,19 @@
   <#assign cssFile="bootstrap.min.css">
   <#assign cssResponsive="bootstrap-responsive.min.css">
   <#assign validationFile="validation.min.js">
+  <#assign bootstrapdropdownFile="bootstrap-dropdown.min.js">
 <#else>
   <#assign jsFile="bootstrap.js">
   <#assign cssFile="bootstrap.css">
   <#assign cssResponsive="bootstrap-responsive.css">
   <#assign validationFile="validation.js">
+  <#assign bootstrapdropdownFile="bootstrap-dropdown.js">
 </#if>
 <#assign cssAdditional="docs.css">
 
 	<script type="text/javascript" src="${base}/static/bootstrap/js/${jsFile}"></script>
     <script type="text/javascript" src="${base}/static/bootstrap/js/${validationFile}"></script>
+    <script type="text/javascript" src="${base}/static/bootstrap/js/${bootstrapdropdownFile}"></script>
     <script type="text/javascript" src="${base}/static/bootstrap/js/bootbox.min.js"></script>
    	<link id="bootstrap_styles" rel="stylesheet" href="${base}/static/bootstrap/css/${cssFile}" type="text/css"/>
 	<link id="bootstrap_responsive_styles" rel="stylesheet" href="${base}/static/bootstrap/css/${cssResponsive}" type="text/css"/>

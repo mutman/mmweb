@@ -78,6 +78,11 @@
 				/org/mutiaraiman/global/view/dashboard.ftl
 			</result>
 		</action>
+		<action name="android">
+		    <result type="freemarker">
+		        /blank.ftl
+		    </result>
+		</action>
 		<!-- <action name="forget"> -->
 		<!-- <result type="freemarker"> -->
 		<!-- /forgetpassword.ftl -->

@@ -8,13 +8,13 @@
 			<li>
 				<a id="${m.id}" href="#${m.id}" class="p" content="${m.content}">
 					<div><h4>${m.title}</h4></div>
-					<!--div class="date" style="color: #999999;">${m.logInformation.createDate?string("dd-MM-yyyy HH:mm")}</div> -->
+					<div class="date" style="color: #999999;">${m.logInformation.createDate?string("dd-MM-yyyy HH:mm")}</div>
 				</a>
 			</li>
 			</#list>
 			<#if (model.totalPage > 1)>
 			<li class="loadmore">
-				<a href="#" class="loadmore" page="1" >Load more... <i class="icon-book" style="float: right;"></i></a>
+				<a href="#" class="loadmore" page="1">Load more... <i class="icon-book" style="float: right;"></i></a>
 			</li>
 			</#if>
 		</ul>
@@ -35,17 +35,15 @@
 					var a = document.createElement('a');
 					$(a).attr("id", d.id);
 					$(a).attr("href", "#" + d.id);
-					$(a).attr("class","p");
-					$(a).attr("content", d.content);
-					//$(a).text(d.title);
-					$(a).append("<div><h4>"+d.title+"</h4></div>");
+					$(a).text(d.title);
 					$(li).append(a);
 					$('li.loadmore').before(li);
-				}
-				if ((page + 1) == ${model.totalPage}) {
-					$('li.loadmore').remove();
-				} else {
-					$('a.loadmore').attr('page', page + 1);
+					
+					if ((page + 1) == ${model.totalPage}) {
+						$('li.loadmore').remove();
+					} else {
+						$(this).attr('page', page + 1);
+					}
 				}
 			});
 			
@@ -59,7 +57,7 @@
 						$('ul.list').hide();
 						$('div.c').fadeIn().empty();
 						$('div.c').append('<p class="lead">' + data.title + '</p>');
-						//$('div.c').append('<p style="color: #999999;">' + new Date(data.logInformation.createDate) + '</p>');
+						$('div.c').append('<p style="color: #999999;">' + new Date(data.logInformation.createDate) + '</p>');
 						$('div.c').append(data.content.replace(/(\r\n|[\r\n])/g, "<br />"));
 					}
 				});

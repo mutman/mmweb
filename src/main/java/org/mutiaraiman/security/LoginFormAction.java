@@ -15,8 +15,12 @@
  */
 package org.mutiaraiman.security;
 
+import javax.inject.Inject;
+
 import org.apache.struts2.ServletActionContext;
 import org.meruvian.yama.actions.DefaultAction;
+import org.mutiaraiman.prayers.Prayer.Type;
+import org.mutiaraiman.prayers.service.PrayerService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -25,18 +29,28 @@ import org.springframework.security.core.context.SecurityContextHolder;
  * 
  */
 public class LoginFormAction extends DefaultAction {
-
+    
+    private static final long serialVersionUID = -1825039661172525306L;
+    
+    @Inject
+    private PrayerService prayerService;
+    
 	public String execute() throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext()
 				.getAuthentication();
 		Object principal = authentication.getPrincipal();
-
+		
+		parameter.put("doa", prayerService.getLatestPrayerByType(Type.PRAYER));
+		parameter.put("renungan", prayerService.getLatestPrayerByType(Type.REFLECTION));
+		parameter.put("quote", prayerService.getLatestPrayerByType(Type.QUOTE));
+		parameter.put("stories", prayerService.getLatestPrayerByType(Type.STORIES));
+        parameter.put("worship", prayerService.getLatestPrayerByType(Type.PRAISE_AND_WORSHIP));
+        
 		if (principal instanceof String
 				&& principal.toString().equals("anonymousUser"))
 			return INPUT;
-
 		ServletActionContext.getResponse().sendRedirect("home");
-
+		
 		return null;
 	}
 

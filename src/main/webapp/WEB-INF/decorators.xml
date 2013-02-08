@@ -1,5 +1,5 @@
 <decorators>
-	<excludes>
+		<excludes>
 		<pattern>/styles/*</pattern>
 		<pattern>/scripts/*</pattern>
 		<pattern>/images/*</pattern>
@@ -11,5 +11,9 @@
 		<pattern>/</pattern>
 		<pattern>/module/*</pattern>
 		<pattern>/home</pattern>
+	</decorator>
+	<decorator name="get" page="/template/get.ftl">
+		<pattern>/android</pattern>
+		<pattern>/android/*</pattern>
 	</decorator>
 </decorators> 

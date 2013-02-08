@@ -52,7 +52,7 @@ public class Prayer extends DefaultPersistence {
 	}
 
 	public enum Type {
-		PRAYER, REFLECTION
+		PRAYER, REFLECTION, PRAISE_AND_WORSHIP, STORIES, QUOTE  
 	}
 
 	private String title;

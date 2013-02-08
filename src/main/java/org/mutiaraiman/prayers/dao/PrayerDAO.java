@@ -16,9 +16,11 @@
 package org.mutiaraiman.prayers.dao;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
 import org.meruvian.yama.persistence.EntityListWrapper;
 import org.meruvian.yama.persistence.LogInformation.StatusFlag;
 import org.meruvian.yama.persistence.access.PersistenceDAO;
@@ -32,7 +34,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class PrayerDAO extends PersistenceDAO<Prayer> {
-
+    
+    private static final Logger log = Logger.getLogger(PrayerDAO.class);
+    
 	public EntityListWrapper<String> getAllTitle(int limit, int page) {
 
 		TypedQuery<String> query = createQuery(String.class, "d.title", "d",
@@ -54,7 +58,23 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 
 		return paging;
 	}
-
+	
+	public Prayer getLatestPrayerByType(Type type) {
+	    TypedQuery<Prayer> query = createQuery(entityClass, "d", "d", "d.logInformation.statusFlag = ? AND d.type = ?"
+                        + " ORDER BY d.logInformation.createDate DESC", StatusFlag.ACTIVE, type);
+        try {
+            query.setMaxResults(1);
+            List<Prayer> prayers = query.getResultList();
+            return prayers.get(0);
+        } catch (IndexOutOfBoundsException e) {
+            Prayer p = new Prayer();
+            p.setId("hasdh2hgaew2rgdaweg3asd3gasdga");
+            p.setTitle("Content title");
+            p.setContent("Newest data, coming soon..");
+            return p;
+        }
+	}
+	
 	public EntityListWrapper<Prayer> getAllByType(Type type, int limit, int page) {
 		TypedQuery<Prayer> query = createQuery(entityClass, "d", "d",
 				"d.logInformation.statusFlag = ? AND d.type = ?"
@@ -87,7 +107,7 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 			query.setMaxResults(limit);
 		}
 
-		query.setFirstResult(page);
+		query.setFirstResult(page * limit);
 
 		EntityListWrapper<Prayer> paging = new EntityListWrapper<Prayer>();
 		paging.setCurrentPage(page);
@@ -107,7 +127,9 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 						+ " ORDER BY d.logInformation.createDate DESC",
 				StatusFlag.ACTIVE, type, new Date(timeMilisFrom), new Date(
 						timeMilisTo));
-
+		
+		log.debug("getAllByDate("+new Date(timeMilisFrom)+", "+new Date(timeMilisTo)+", "+type+", "+limit+", "+page+")");
+		
 		if (limit > 0) {
 			query.setMaxResults(limit);
 		}

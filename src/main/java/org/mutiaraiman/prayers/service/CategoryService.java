@@ -34,10 +34,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class CategoryService extends PersistenceManager<Category> {
  
-		
-	
-	
-	
 	@Inject
 	private CategoryDAO dao;
 
@@ -47,6 +43,5 @@ public class CategoryService extends PersistenceManager<Category> {
 	public EntityListWrapper<Category> getAllByName ( String name, int limit, int page) {
 		return dao.getAllByName(name, limit, page);
 	}
-
 
 }

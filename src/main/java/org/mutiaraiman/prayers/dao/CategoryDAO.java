@@ -21,11 +21,7 @@ import org.meruvian.yama.persistence.EntityListWrapper;
 import org.meruvian.yama.persistence.LogInformation.StatusFlag;
 import org.meruvian.yama.persistence.access.PersistenceDAO;
 import org.mutiaraiman.prayers.Category;
-import org.mutiaraiman.prayers.Prayer;
-import org.mutiaraiman.prayers.Prayer.Type;
 import org.springframework.stereotype.Repository;
-
-import com.sun.tools.internal.xjc.model.CAdapter;
 
 /**
  * @author Dian Aditya

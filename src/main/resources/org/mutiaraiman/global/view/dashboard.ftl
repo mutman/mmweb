@@ -25,6 +25,37 @@
 			<li>
 				<a href="<@s.url value="/module/reflections/delete" />"><i class="icon-minus"></i> Hapus Renungan</a>
 			</li>
+			
+			<li class="active">
+				<a><strong>Lagu Rohani</strong></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/worship/new" />"><i class="icon-plus"></i> Tambah Lagu Rohani <i class="icon-chevron-right" style="float: right;"></i></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/worship/delete" />"><i class="icon-minus"></i> Hapus Lagu Rohani</a>
+			</li>
+			
+			<li class="active">
+				<a><strong>Kisah Santo dan Santa</strong></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/stories/new" />"><i class="icon-plus"></i> Tambah Kisah Santo dan Santa <i class="icon-chevron-right" style="float: right;"></i></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/stories/delete" />"><i class="icon-minus"></i> Hapus Kisah Santo dan Santa</a>
+			</li>
+			
+			<li class="active">
+				<a><strong>Catholic Quote</strong></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/quote/new" />"><i class="icon-plus"></i> Tambah Catholic Quote <i class="icon-chevron-right" style="float: right;"></i></a>
+			</li>
+			<li>
+				<a href="<@s.url value="/module/quote/delete" />"><i class="icon-minus"></i> Hapus Catholic Quote</a>
+			</li>
+			
 			<li class="active">
 				<a><strong>Keamanan</strong></a>
 			</li>
@@ -33,7 +64,8 @@
 			</li>
 			<li>	
 				<a href="<@s.url value="/module/user" />"><i class="icon-plus"></i> Profil <i class="icon-chevron-right" style="float: right;"></i></a>
-			</li> 
+			</li>
+			 
 		</ul>
 	</div>
 </div>

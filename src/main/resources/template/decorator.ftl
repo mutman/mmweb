@@ -4,9 +4,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><@s.text name="frontend.title" /></title>
-		
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="<@s.url value="/static/jquery/jquery.min.js" />"></script>
 		<script type="text/javascript" src="<@s.url value="/static/jquery/jquery.address.min.js" />"></script>
+		<script language="javascript">
+    	 $('.dropdown-menu').find('form').click(function (e) {
+        	e.stopPropagation();
+      		});
+		</script>
 		<@sb.head compressed="true" />
 		<@s.url value="" forceAddSchemeHostAndPort="true" var="ctx" />
 		<script type="text/javascript">
@@ -33,6 +38,35 @@
 			}
 			header { margin-bottom: 18px; border-bottom: 2px solid #777; }
 			header h1 { font-size: 150%; margin-bottom: 5px; }
+			#login {
+				margin: 0 0 0;
+			}
+			.span4 {
+				padding-bottom: 10px;
+			}
+			.playstore {
+				border: 1px solid #AFAFAF;
+				-moz-border-radius: 0px 10px 10px 0px;
+				-webkit-border-bottom-right-radius: 3px;
+				-webkit-border-top-right-radius: 3px;
+				-khtml-border-bottom-right-radius: 3px;
+				-khtml-border-top-right-radius: 3px;
+			}
+			.brand {
+				background-image: url('/statics/img/mik_logo_white.png');
+				background-size: 37px;
+				background-repeat: no-repeat;
+				padding-left: 40px !important;
+			}
+			p , body{
+				font-family: 'Droid Sans', sans-serif;
+				margin: 0 0 18px;
+				font-size: 13px;
+				line-height: 20px;
+			}
+			h1, h4, .lead {
+				color: #501764;
+			}
 		</style>
 	</head>
 	<body>
@@ -44,18 +78,47 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" href="<@s.url value="/" />"><@s.text name="frontend.header.text" /></a>
+					<a class="brand" href="<@s.url value="/" />"><span class="logo"></span><@s.text name="frontend.header.text" /></a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class="active"><a href='<@s.url value="/" />'><i class="icon-home icon-white"></i> Beranda</a></li>
+							<li><a href='<@s.url value="/" />'><i class="icon-home icon-white"></i> Beranda</a></li>
 							<li><a href='<@s.url value="/module/prayers" />'>Doa</a></li>
 							<li><a href='<@s.url value="/module/reflections" />'>Renungan</a></li>
+							<li><a href='<@s.url value="/module/worship" />'>Lagu Rohani</a></li>
+							<li><a href='<@s.url value="/module/stories" />'>Kisah Santo dan Santa</a></li>
+							<li><a href='<@s.url value="/module/quote" />'>Catholic Quote</a></li>
 							<#if request.session.getAttribute("SPRING_SECURITY_CONTEXT")??>
 								<li>
 									<a href="<@s.url value="/logout" />">Keluar</a>
 								</li>
 							</#if>
 						</ul>
+						<#if !request.session.getAttribute("SPRING_SECURITY_CONTEXT")??>
+							<ul class="nav pull-right">
+		              			<li class="dropdown" id="dropdown">
+		         				<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+		           						Login
+		            				<b class="caret"></b>
+		         				</a>
+		             				<div class="dropdown-menu" id="dropdown">
+		           
+		        	    				<@s.form theme="bootstrap" action="/login" cssClass="form-horizontal">
+											<@s.actionmessage theme="bootstrap" />
+						 				 	 <fieldset class="textbox" style="padding:10px;">
+				               					 <input style="margin-top: 8px" type="text" name="username" placeholder="Username" />
+			    	           					 <input style="margin-top: 8px" type="password" name="password" placeholder="Passsword" />
+			        	       				     <br/>
+			            	   				     <p align="right"> <input class="btn-primary" style="margin-top: 8px" name="commit" type="submit" value="  Log In  " /></p>
+												</p>
+			           							</@s.form>
+		           							</fieldset>
+		           							<a href='<@s.url value="/forgot" />'">Forgot your Password?</a> 
+										</div>
+									</div>
+		       					</li>
+		                	</ul>
+						</#if>
+					
 					</div>
 				</div>
 			</div>
