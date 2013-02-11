@@ -8,7 +8,6 @@
 	</excludes>
 
 	<decorator name="layout" page="/template/decorator.ftl">
-		<pattern>/</pattern>
 		<pattern>/module/*</pattern>
 		<pattern>/home</pattern>
 	</decorator>
