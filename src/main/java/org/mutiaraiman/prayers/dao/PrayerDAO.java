@@ -121,7 +121,7 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 	}
 	
 	public Prayer getTodayStory(){
-		String date = new SimpleDateFormat("dd MMMM", Locale.forLanguageTag("in")).format(new java.util.Date());
+		String date = new SimpleDateFormat("dd MMMM", new Locale("in")).format(new java.util.Date());
 		TypedQuery<Prayer> query = createQuery(entityClass, "d", "d", "d.title LIKE ? AND d.type = ?", "%"+date+"%", Type.STORIES);
 		try{
 			return query.getSingleResult();	
