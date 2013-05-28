@@ -133,7 +133,8 @@
       </div>
 
       <div class="row">
-      <div class="span4">
+      	<div class="span4">
+      	<#if stories??> 
 	      <h4>Kisah Santo dan Santa  | ${stories.title}</h4>
 		  <p>
 	       		<#assign minititle=(stories.content!"")>
@@ -143,6 +144,7 @@
 					${minititle?substring(0,249)} <a href='<@s.url value="/module/stories#${stories.id}" />'>[ Read More . . . ]</a>
 				</#if>
 		   </p>
+	    </#if>
 	    </div> 
 	    <div class="span4">
 	      <h4>Lagu Rohani  | ${worship.title}</h4>

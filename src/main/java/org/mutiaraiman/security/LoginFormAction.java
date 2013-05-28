@@ -43,7 +43,7 @@ public class LoginFormAction extends DefaultAction {
 		parameter.put("doa", prayerService.getLatestPrayerByType(Type.PRAYER));
 		parameter.put("renungan", prayerService.getLatestPrayerByType(Type.REFLECTION));
 		parameter.put("quote", prayerService.getLatestPrayerByType(Type.QUOTE));
-		parameter.put("stories", prayerService.getLatestPrayerByType(Type.STORIES));
+		parameter.put("stories", prayerService.getTodayStory());
         parameter.put("worship", prayerService.getLatestPrayerByType(Type.PRAISE_AND_WORSHIP));
         
 		if (principal instanceof String

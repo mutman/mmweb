@@ -69,7 +69,11 @@ public class PrayerService extends PersistenceManager<Prayer> {
 	public long getCountByDate(long timeMilisFrom, long timeMilisTo, Type type) {
 		return dao.getCountByDate(timeMilisFrom, timeMilisTo, type);
 	}
-
+	
+	public Prayer getTodayStory(){
+		return dao.getTodayStory();
+	}
+	
 	protected PersistenceDAO<Prayer> getDao() {
 		return dao;
 	}

@@ -15,8 +15,10 @@
  */
 package org.mutiaraiman.prayers.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.TypedQuery;
 
@@ -117,7 +119,17 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 
 		return paging;
 	}
-
+	
+	public Prayer getTodayStory(){
+		String date = new SimpleDateFormat("dd MMMM", Locale.forLanguageTag("in")).format(new java.util.Date());
+		TypedQuery<Prayer> query = createQuery(entityClass, "d", "d", "d.title LIKE ? AND d.type = ?", "%"+date+"%", Type.STORIES);
+		try{
+			return query.getSingleResult();	
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
 	public EntityListWrapper<Prayer> getAllByDate(long timeMilisFrom,
 			long timeMilisTo, Type type, int limit, int page) {
 		TypedQuery<Prayer> query = createQuery(entityClass, "d", "d",
