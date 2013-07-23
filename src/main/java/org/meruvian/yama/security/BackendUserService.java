@@ -46,7 +46,11 @@ public class BackendUserService {
 
 		return user;
 	}
-
+	
+	public BackendUser loadBackendUserByEmail(String email){
+		return dao.getUserByEmail(email);
+	}
+	
 	@Transactional
 	public BackendUser save(BackendUser user) {
 		if (user.getId() == null) {
@@ -57,7 +61,8 @@ public class BackendUserService {
 			temp.getLogInformation().setUpdateDate(new Date());
 			temp.setUsername(user.getUsername());
 			temp.setEmail(user.getEmail());
-
+			temp.setFbasccesstoken(user.getFbasccesstoken());
+			temp.setFbexpiredate(user.getFbexpiredate());
 			return dao.merge(temp);
 		}
 

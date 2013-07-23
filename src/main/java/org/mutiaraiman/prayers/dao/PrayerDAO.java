@@ -127,7 +127,7 @@ public class PrayerDAO extends PersistenceDAO<Prayer> {
 		try{
 			return query.getSingleResult();
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 			return null;
 		}
 	}

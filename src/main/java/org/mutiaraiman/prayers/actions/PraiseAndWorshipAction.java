@@ -61,6 +61,7 @@ public class PraiseAndWorshipAction extends DefaultPrayerController {
         prayer.setType(Type.PRAISE_AND_WORSHIP);
         prayerService.save(prayer);
         log.debug("persisting prayer with type: "+ prayer.getType());
+        FacebookPagePostUtil.post(prayer);
         return CREATE;
     }
     

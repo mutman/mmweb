@@ -43,4 +43,16 @@ public class BackendUserDAO extends PersistenceDAO<BackendUser> {
 			return null;
 		}
 	}
+
+	public BackendUser getUserByEmail(String email) {
+		TypedQuery<BackendUser> query = createQuery(BackendUser.class, "d",
+				"d", "d.logInformation.statusFlag = ? AND d.email = ?",
+				StatusFlag.ACTIVE, email);
+		try {
+			return query.getSingleResult();
+		} catch (Exception e) {
+			LOG.error("No entity found within key " + email, e);
+			return null;
+		}
+	}
 }

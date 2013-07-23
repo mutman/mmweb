@@ -18,6 +18,7 @@ package org.mutiaraiman.prayers.actions;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -27,6 +28,10 @@ import org.meruvian.yama.actions.annotations.ActionParam;
 import org.meruvian.yama.persistence.LogInformation.StatusFlag;
 import org.mutiaraiman.prayers.Prayer;
 import org.mutiaraiman.prayers.Prayer.Type;
+
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
+import facebook4j.PostUpdate;
 
 /**
  * @author Dias Nurul Arifin
@@ -61,6 +66,7 @@ public class StoriesAction extends DefaultPrayerController {
         prayer.setType(Type.STORIES);
         prayerService.save(prayer);
         log.debug("persisting prayer with type: "+ prayer.getType());
+        FacebookPagePostUtil.post(prayer);
         return CREATE;
     }
     

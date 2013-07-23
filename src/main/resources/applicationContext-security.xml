@@ -34,14 +34,18 @@
 
 	<bean id="userService" class="org.meruvian.yama.security.UserService" />
 
+	
 	<sc:authentication-manager>
-		<sc:authentication-provider
-			user-service-ref="userService">
-			<!-- <sc:user-service> -->
-			<!-- <sc:user name="admin" password="admin" authorities="ADMINISTRATOR" 
-				/> -->
-			<!-- </sc:user-service> -->
+		<sc:authentication-provider user-service-ref="userService">
 			<sc:password-encoder ref="passwordEncoder" />
 		</sc:authentication-provider>
 	</sc:authentication-manager>
+	
+<!-- 	<sc:authentication-manager> -->
+<!-- 		<sc:authentication-provider> -->
+<!-- 			<sc:user-service> -->
+<!-- 				<sc:user name="admin" password="admin" authorities="ADMINISTRATOR"/> -->
+<!-- 			</sc:user-service> -->
+<!-- 		</sc:authentication-provider> -->
+<!-- 	</sc:authentication-manager> -->
 </beans>

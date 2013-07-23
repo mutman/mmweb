@@ -32,7 +32,9 @@ public class BackendUser extends DefaultPersistence {
 	private String password;
 	private String email;
 	private String role;
-
+	private String fbasccesstoken;
+	private long fbexpiredate;
+	
 	@Column(unique = true)
 	public String getUsername() {
 		return username;
@@ -64,6 +66,22 @@ public class BackendUser extends DefaultPersistence {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getFbasccesstoken() {
+		return fbasccesstoken;
+	}
+
+	public void setFbasccesstoken(String fbasccesstoken) {
+		this.fbasccesstoken = fbasccesstoken;
+	}
+
+	public long getFbexpiredate() {
+		return fbexpiredate;
+	}
+
+	public void setFbexpiredate(long fbexpiredate) {
+		this.fbexpiredate = fbexpiredate;
 	}
 
 }

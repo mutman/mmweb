@@ -61,6 +61,7 @@ public class QuoteAction extends DefaultPrayerController {
         prayer.setType(Type.QUOTE);
         prayerService.save(prayer);
         log.debug("persisting prayer with type: "+ prayer.getType());
+        FacebookPagePostUtil.post(prayer);
         return CREATE;
     }
     

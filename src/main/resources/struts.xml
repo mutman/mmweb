@@ -70,6 +70,8 @@
 	</package>
 
 	<package name="index" extends="yama-default" namespace="/">
+	    <action name="fbconnect" class="org.mutiaraiman.security.FacebookLoginAction"/>
+	    <action name="callback" class="org.mutiaraiman.security.FacebookCallbackAction"/>
 		<action name="" class="org.mutiaraiman.security.LoginFormAction">
 			<result name="input" type="freemarker">/index.ftl</result>
 		</action>

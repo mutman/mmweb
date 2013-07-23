@@ -50,7 +50,7 @@ public class ReflectionAction extends DefaultPrayerController {
 	public String editNew() {
 		model = null;
 		parameter.put("reminders", Reminder.values());
-
+		
 		return NEW;
 	}
 
@@ -58,7 +58,7 @@ public class ReflectionAction extends DefaultPrayerController {
 		prayer.setCategory(null);
 		prayer.setType(Type.REFLECTION);
 		prayerService.save(prayer);
-
+		FacebookPagePostUtil.post(prayer);
 		return CREATE;
 	}
 

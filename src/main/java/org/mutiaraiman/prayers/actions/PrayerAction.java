@@ -66,7 +66,7 @@ public class PrayerAction extends DefaultPrayerController {
 				.getId()));
 		prayer.setType(Type.PRAYER);
 		prayerService.save(prayer);
-
+		FacebookPagePostUtil.post(prayer);
 		return CREATE;
 	}
 

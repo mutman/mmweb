@@ -108,8 +108,10 @@
 				               					 <input style="margin-top: 8px" type="text" name="username" placeholder="Username" />
 			    	           					 <input style="margin-top: 8px" type="password" name="password" placeholder="Passsword" />
 			        	       				     <br/>
-			            	   				     <p align="right"> <input class="btn-primary" style="margin-top: 8px" name="commit" type="submit" value="  Log In  " /></p>
-												</p>
+			        	       				     <p align="right">
+			        	       				     	<img src="/statics/img/facebooklogin.png" style="margin-top: 10px;height: 23px;cursor: pointer; " onclick="window.location='/fbconnect;'"/>
+				            	   				     <input class="btn-primary" style="margin-top: -16px; height: 25px;" name="commit" type="submit" value="  Log In  " />
+												 </p>
 			           							</@s.form>
 		           							</fieldset>
 		           							<a href='<@s.url value="/forgot" />'">Forgot your Password?</a> 
