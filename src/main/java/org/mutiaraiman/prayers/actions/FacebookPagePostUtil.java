@@ -14,11 +14,7 @@ public class FacebookPagePostUtil {
 		if (facebook != null) {
 			try {
 				StringBuilder sb = new StringBuilder(prayer.getTitle()+"\n");
-				if (prayer.getContent().length() >= 200) {
-					sb.append(prayer.getContent().substring(0, 200)+"...\n");
-				}else{
-					sb.append(prayer.getContent());
-				}
+				sb.append(prayer.getContent()+"\n");
 				String namespace = "";
 				switch (prayer.getType()) {
 				case PRAYER:
@@ -37,9 +33,9 @@ public class FacebookPagePostUtil {
 					namespace = "quote";
 					break;
 				}
-				sb.append("\n lihat semua http://www.mutiara-iman.org/module/"+namespace+"#"+prayer.getId());
+				sb.append("\n http://www.mutiara-iman.org/module/"+namespace+"#"+prayer.getId());
 				PostUpdate postUpdate = new PostUpdate(sb.toString());
-				facebook.postFeed("201793193210386", postUpdate);
+				facebook.postFeed("307086042693126", postUpdate);
 			} catch (FacebookException e) {
 				e.printStackTrace();
 			}
