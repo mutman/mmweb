@@ -2,16 +2,21 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="google-play-app" content="app-id=org.mutiaraiman.droid">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><@s.text name="frontend.title" /></title>
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="<@s.url value="/static/jquery/jquery.smartbanner.css" />" type="text/css" media="screen">
 		<script type="text/javascript" src="<@s.url value="/static/jquery/jquery.min.js" />"></script>
 		<script type="text/javascript" src="<@s.url value="/static/jquery/jquery.address.min.js" />"></script>
+		<script type="text/javascript" src="<@s.url value="/static/jquery/jquery.smartbanner.js" />"></script>
 		<script language="javascript">
     	 $('.dropdown-menu').find('form').click(function (e) {
         	e.stopPropagation();
       		});
+    	 $(function() { $.smartbanner() } )
 		</script>
+		
 		<@sb.head compressed="true" />
 		<@s.url value="" forceAddSchemeHostAndPort="true" var="ctx" />
 		<script type="text/javascript">
