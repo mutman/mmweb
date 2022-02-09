@@ -9,7 +9,7 @@
 	<name>MIK</name>
 
 	<properties>
-		<struts2.version>2.5.20</struts2.version>
+		<struts2.version>2.5.26</struts2.version>
 		<spring.version>5.2.10.RELEASE</spring.version>
 		<hibernate.version>4.1.0.Final</hibernate.version>
 		<spring.security.version>3.1.0.RELEASE</spring.security.version>
